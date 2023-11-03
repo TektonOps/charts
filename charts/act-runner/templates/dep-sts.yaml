@@ -1,0 +1,65 @@
+apiVersion: {{ if .Values.runner.useStatefulSet }}{{ include "ar.statefulset.apiVersion" . }}{{- else }}{{ include "ar.deployment.apiVersion" . }}{{- end }}
+kind: {{ if .Values.runner.useStatefulSet }}StatefulSet{{- else }}Deployment{{- end }}
+metadata:
+  name: {{ include "ar.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels: {{ include "ar.labels" . | nindent 4 }}
+spec:
+  replicas: {{ default "1" .Values.replicas }}
+  selector:
+    matchLabels:
+  {{- include "ar.template-labels" . | nindent 6 }}
+  {{- if .Values.runner.updateStrategy}}
+  {{- if .Values.runner.useStatefulSet }}
+  updateStrategy:
+  {{- else }}
+  strategy:
+  {{- end }}
+    {{- toYaml .Values.runner.updateStrategy | nindent 4 }}
+  {{- end }}
+  template:
+    metadata:
+      labels: {{ include "ar.template-labels" . | nindent 8 }}
+        {{- if .Values.podLabels }}
+{{ toYaml .Values.podLabels | indent 8 }}
+        {{- end }}
+      annotations:
+        checksum/secret: {{ tpl (toYaml .Values.runner.runnerToken.value) . | sha256sum }}
+{{- if .Values.runner.config.enabled }}
+        checksum/secret: {{ tpl (toYaml .Values.runner.config.data) . | sha256sum }}
+        {{- end }}
+        {{- if .Values.podAnnotations }}
+{{ tpl (toYaml .Values.podAnnotations) . | indent 8 }}
+        {{- end }}
+    spec: {{ include "ar.pod" . | nindent 6 }}
+{{- if .Values.runner.config.enabled }}
+      - name: config
+        secret: 
+          secretName: {{ include "ar.fullname" . }}-config
+{{- end }}
+{{- if .Values.runner.dockerDind.enabled }}
+      - name: docker-certs
+        emptyDir: {}
+{{- end }}
+{{- if and .Values.persistence.enabled (not .Values.persistence.existingClaim) (not .Values.runner.useStatefulSet) }}
+      - name: data
+        persistentVolumeClaim:
+          claimName: {{ include "ar.fullname" . }}-data
+{{- else if and .Values.persistence.enabled (not .Values.persistence.existingClaim) }}
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes:
+        - {{ default "ReadWriteOnce" .Values.persistence.accessModes }}
+      storageClassName: {{ .Values.persistence.storageClassName }}
+      resources:
+        requests:
+          storage: {{ .Values.persistence.size }}
+      {{- if .Values.persistence.selector }}
+      selector: {{ toYaml .Values.persistence.selector | nindent 8 }}
+      {{- end }}
+{{- else }}
+      - name: data
+        emptyDir: {}
+{{- end }}

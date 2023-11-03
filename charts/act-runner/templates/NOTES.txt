@@ -1,0 +1,10 @@
+
+
+Thank you for installing {{ .Chart.Name }}, your release {{ .Release.Name }} is deployed.
+
+************************************************************************************
+*** PLEASE BE PATIENT: It may take a few minutes for the runner to be available. ***
+************************************************************************************
+
+To watch the status of service run:
+kubectl get --namespace {{ .Release.Namespace }} svc -w {{ include "ar.fullname" . }}
