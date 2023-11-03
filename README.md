@@ -7,19 +7,20 @@
 
     ```
     helm repo add lmno https://charts.lmno.pk
-    helm repo update
+    
 
     ```
 2. Update repo and search
 
     ```
+    helm repo update
     helm search repo -l lmno
 
     ```
 3. Install the chart
 
     ```
-    helm install act-runner lmno/act-runner
+    helm install act-runner lmno/act-runner --set runner.runnerToken.value=<runner registration tokent>
     ```
 
 4. Uninstall
