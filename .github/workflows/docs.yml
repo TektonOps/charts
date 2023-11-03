@@ -3,7 +3,7 @@ name: Update helm docs
 on:
   pull_request:
     paths:
-      - charts/act-runner/**
+      - 'charts/**'
 
 jobs:
   update-helm-docs:
@@ -40,4 +40,4 @@ jobs:
           git status -s
           git add "charts/act-runner/README.md"
           git commit -m "Update helm docs"
-          git push
+          git push origin HEAD
