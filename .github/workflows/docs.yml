@@ -1,0 +1,22 @@
+name: Generate chart documentation
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'charts/**'
+      
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: Generate Helm Docs
+        uses: shaybentk/helm-docs-action@v0.0.1
+        with:
+          working-dir: charts/act-runner
+          git-push: "true"
