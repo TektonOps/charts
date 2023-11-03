@@ -35,7 +35,7 @@ jobs:
       - name: Commit Helm Docs
         run: |
           set -ex
-          STATUS=$(git status --porcelain | grep -c -E '([MA]\W).+' || true)
+          STATUS=$(git status --porcelain | grep -c -E '([R]\E).+' || true)
           if [ "$STATUS" -eq 0 ]; then
             echo "No files changed, skipping commit"
             exit 0
