@@ -1,22 +1,43 @@
-name: Generate chart documentation
+name: Update helm docs
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
     paths:
-      - 'charts/**'
-      
+      - charts/act-runner/**
+
 jobs:
-  docs:
+  update-helm-docs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
           ref: main
 
-      - name: Generate Helm Docs
-        uses: shaybentk/helm-docs-action@v0.0.1
+      - name: Configure Git
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+
+      - name: Install Helm Docs
+        uses: envoy/install-helm-docs@v1.0.0
         with:
-          working-dir: charts/act-runner
-          git-push: "true"
+          version: 1.11.3
+
+      - name: Update Helm Docs
+        run: |
+          set -ex
+          cd charts/act-runner
+          helm-docs
+
+      - name: Commit Helm Docs
+        run: |
+          set -ex
+          STATUS=$(git status --porcelain | grep -c -E '([MA]\W).+' || true)
+          if [ "$STATUS" -eq 0 ]; then
+            echo "No files changed, skipping commit"
+            exit 0
+          fi
+          git status -s
+          git add "charts/act-runner/README.md"
+          git commit -m "Update helm docs"
+          git push
