@@ -1,6 +1,6 @@
 # Helmchart for Gitea Act Runner
 
-## This chart can be used to deploy act runner for gitea as statefulset or deployemnt in both rootless or root mode..
+## This chart can be used to deploy act runner for gitea as statefulset or deployemnt in both rootless or root mode.
 
 ![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
