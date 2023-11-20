@@ -2,6 +2,26 @@ apiVersion: v1
 entries:
   act-runner:
   - apiVersion: v2
+    appVersion: 0.2.6
+    created: "2023-11-20T07:27:01.256218916Z"
+    description: Act runner for gitea actions
+    digest: 64747adacec71934a1728f969b88a64a9a89d703c86aa59ea2f84863ef6e1ca1
+    home: https://charts.lmno.pk
+    keywords:
+    - gitea
+    - actions
+    - runner
+    - cicd
+    maintainers:
+    - email: a.khaliq@outlook.my
+      name: Abdul Khaliq
+      url: https://github.com/kha7iq
+    name: act-runner
+    type: application
+    urls:
+    - https://github.com/kha7iq/charts/releases/download/act-runner-0.1.2/act-runner-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
     created: "2023-11-03T09:06:51.96397965Z"
     description: Act runner for gitea actions
     digest: 395cd2aee5dc2110582e0518928a5f84128b5df506fbc13bb16f7dfe572d2ed0
@@ -20,4 +40,4 @@ entries:
     urls:
     - https://github.com/kha7iq/charts/releases/download/act-runner-0.1.1/act-runner-0.1.1.tgz
     version: 0.1.1
-generated: "2023-11-03T09:06:51.96398955Z"
+generated: "2023-11-20T07:27:01.256228153Z"
