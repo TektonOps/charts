@@ -17,7 +17,7 @@ image:
   repository: docker.io
   # -- Specify the
   # [pullPolicy](https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy).
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   # -- Specify the image pull secrets if pulling from private registry
   # [imagePullSecrets](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod).
   pullSecrets: []
@@ -28,12 +28,12 @@ runner:
   useStatefulSet: false
   # -- valid options for statefulset `RollingUpdate`, `OnDelete` / Deployment: `RollingUpdate`, `Recreate`
   updateStrategy:
-    type: RollingUpdate
+    type: Recreate
   # -- Docker in Docker with root user
   # -- @default `nil`
   dockerDind: 
   # -- enable docker dind
-    enabled: false
+    enabled: ture
   # -- docker image repository
     image: "docker:23.0.6-dind"
 

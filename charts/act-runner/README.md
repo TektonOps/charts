@@ -2,7 +2,7 @@
 
 #### This chart can be used to deploy act runner for gitea as [Statefulset](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) or [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) in both rootless or root mode.
 
-![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: nightly](https://img.shields.io/badge/AppVersion-nightly-informational?style=flat-square)
+![Version: 0.1.2](https://img.shields.io/badge/Version-0.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.2.6](https://img.shields.io/badge/AppVersion-0.2.6-informational?style=flat-square)
 
 ## Installing the Chart
 
@@ -31,7 +31,7 @@ $ helm install act-runner lmno/act-runner
 | global.fullnameOverride | string | `""` | Override the fully qualified app name. |
 | global.nameOverride | string | `""` | Override the name of the app. |
 | image.name | string | `"gitea/act_runner"` | Specify the image name to use (relative to `image.repository`). |
-| image.pullPolicy | string | `"IfNotPresent"` | Specify the [pullPolicy](https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy). |
+| image.pullPolicy | string | `"Always"` | Specify the [pullPolicy](https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy). |
 | image.pullSecrets | list | `[]` | Specify the image pull secrets if pulling from private registry [imagePullSecrets](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod). |
 | image.repository | string | `"docker.io"` | Specify the image repository to use. |
 | image.tag | string | `"nightly"` | Specify the image tag to use. ( nightly or nightly-dind-rootless ) |
@@ -57,14 +57,14 @@ $ helm install act-runner lmno/act-runner
 | runner.config | object | `nil` | Specify runner's custom configuration |
 | runner.config.data | string | `"log:\n  level: info\nrunner:\n  labels: []\n"` | Your custom config block |
 | runner.config.enabled | bool | `false` | Enables configuration for deployment |
-| runner.dockerDind | object | `{"enabled":false,"image":"docker:23.0.6-dind"}` | @default `nil` |
-| runner.dockerDind.enabled | bool | `false` | enable docker dind |
+| runner.dockerDind | object | `{"enabled":"ture","image":"docker:23.0.6-dind"}` | @default `nil` |
+| runner.dockerDind.enabled | string | `"ture"` | enable docker dind |
 | runner.dockerDind.image | string | `"docker:23.0.6-dind"` | docker image repository |
 | runner.instanceURL | string | `"http://gitea-http.apps.svc.cluster.local:3000"` | Gitea instance URL  |
 | runner.runnerToken | object | `{"existingSecret":"","value":"< token here >"}` | Runner registration token |
 | runner.runnerToken.existingSecret | string | `""` | Specify an existing secret containing runner token with key (token: value) |
 | runner.runnerToken.value | string | `"< token here >"` | Set registration token value, if existing secret is specified this value is not used. |
-| runner.updateStrategy | object | `{"type":"RollingUpdate"}` | valid options for statefulset `RollingUpdate`, `OnDelete` / Deployment: `RollingUpdate`, `Recreate` |
+| runner.updateStrategy | object | `{"type":"Recreate"}` | valid options for statefulset `RollingUpdate`, `OnDelete` / Deployment: `RollingUpdate`, `Recreate` |
 | runner.useStatefulSet | bool | `false` | Set to true to use a StatefulSet instead of a Deployment |
 | securityContext | object | `{"privileged":true}` | Specify securityContext for Containers. |
 | terminationGracePeriodSeconds | int | `10` | Override terminationGracePeriodSeconds. |
