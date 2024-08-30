@@ -1,4 +1,4 @@
-# Helmchart for Gitea Act Runner
+# Gitea Act Runner
 
 #### This chart can be used to deploy act runner for gitea as [Statefulset](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) or [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) in both rootless or root mode.
 
