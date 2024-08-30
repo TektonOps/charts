@@ -40,4 +40,24 @@ entries:
     urls:
     - https://github.com/kha7iq/charts/releases/download/act-runner-0.1.1/act-runner-0.1.1.tgz
     version: 0.1.1
-generated: "2023-11-20T07:27:01.256228153Z"
+  drl-exporter:
+  - apiVersion: v2
+    appVersion: 2.1.2
+    created: "2024-08-30T17:09:44.4818344Z"
+    description: Prometheus exporter for dockerhub rate limits
+    digest: 399929a6320ee114fc2d56f6a5b6cb26d77801a72646070ed85720ea5bae68c0
+    home: https://charts.lmno.pk
+    keywords:
+    - prometheus
+    - exporter
+    - dockerhub
+    maintainers:
+    - email: a.khaliq@outlook.my
+      name: Abdul Khaliq
+      url: https://github.com/kha7iq/charts
+    name: drl-exporter
+    type: application
+    urls:
+    - https://github.com/kha7iq/charts/releases/download/drl-exporter-0.1.1/drl-exporter-0.1.1.tgz
+    version: 0.1.1
+generated: "2024-08-30T17:09:44.481843326Z"
