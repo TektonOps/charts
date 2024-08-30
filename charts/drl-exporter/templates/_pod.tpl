@@ -17,13 +17,13 @@ dnsConfig: {{ toYaml .Values.dnsConfig | nindent 2 }}
 {{- if .Values.image.pullSecrets }}
 imagePullSecrets: {{ toYaml .Values.image.pullSecrets | nindent 2 }}
 {{- end }}
+{{- if .Values.serviceAccount.create }}
+serviceAccountName: {{ include "drl.fullname" . }}
+{{- end }}
 containers:
   - name: drl-exporter
     image: "{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
     imagePullPolicy: {{ .Values.image.pullPolicy }}
-{{- if .Values.serviceAccount.create }}
-    serviceAccountName: {{ include "drl.fullname" . }}
-{{- end }}
     ports:
     - name: http
       containerPort: {{ default "2121" .Values.exporter.listenPort }}
