@@ -1,0 +1,23 @@
+apiVersion: {{ include "drl.deployment.apiVersion" . }}
+kind: Deployment
+metadata:
+  name: {{ include "drl.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels: {{ include "drl.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+  {{- include "drl.template-labels" . | nindent 6 }}
+  template:
+    metadata:
+      labels: {{ include "drl.template-labels" . | nindent 8 }}
+        {{- if .Values.podLabels }}
+{{ toYaml .Values.podLabels | indent 8 }}
+        {{- end }}
+      annotations:
+        checksum/secret: {{ tpl (toYaml .Values.exporter.auth.dockerHubPassword) . | sha256sum }}
+        {{- if .Values.podAnnotations }}
+{{ tpl (toYaml .Values.podAnnotations) . | indent 8 }}
+        {{- end }}
+    spec: {{ include "drl.pod" . | nindent 6 }}

@@ -1,0 +1,15 @@
+apiVersion: v2
+name: drl-exporter
+version: 0.1.1
+description: Prometheus exporter for dockerhub rate limits 
+type: application
+keywords:
+  - prometheus
+  - exporter
+  - dockerhub
+home: https://charts.lmno.pk
+maintainers:
+  - name: Abdul Khaliq
+    email: a.khaliq@outlook.my
+    url: https://github.com/kha7iq/charts
+appVersion: 2.1.2
