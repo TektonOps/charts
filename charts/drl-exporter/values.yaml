@@ -26,6 +26,9 @@ image:
 exporter:
   # exporter.listerPort -- Server listen port
   listenPort: 2121
+  
+  # exporter.requestInterval -- Specify the interval in seconds at which requests should be sent to Dockerhub
+  requestInterval: "15"
 
   auth:
     # exporter.auth.enabled -- Enable/disable authentication for given account
@@ -50,14 +53,13 @@ serviceAccount:
 # -- Define environment variables.
 env: []
 #  - name: ENABLE_IPV6
-#    value: true
+#    value: "true"
 
 serviceMonitor:
   ## If true, a ServiceMonitor CRD is created for a prometheus operator
   ## https://github.com/coreos/prometheus-operator
   ##
   enabled: false
-  path: /metrics
   #  namespace: monitoring  (defaults to use the namespace this chart is deployed to)
   labels: {}
   interval: 1m

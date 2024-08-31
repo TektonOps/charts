@@ -31,6 +31,7 @@ $ helm install drl-exporter lmno/drl-exporter
 | exporter.auth.enableFileAuth.enabled | bool | `false` | Enable file based authentication |
 | exporter.auth.enabled | bool | `false` | Enable/disable authentication for given account |
 | exporter.listenPort | int | `2121` |  |
+| exporter.requestInterval | string | `"15"` | Specify the interval in seconds at which requests should be sent to Dockerhub |
 | global.commonLabels | object | `{}` | Apply labels to all resources. |
 | global.fullnameOverride | string | `""` | Override the fully qualified app name. |
 | global.nameOverride | string | `""` | Override the name of the app. |
@@ -52,7 +53,6 @@ $ helm install drl-exporter lmno/drl-exporter
 | serviceMonitor.enabled | bool | `false` |  |
 | serviceMonitor.interval | string | `"1m"` |  |
 | serviceMonitor.labels | object | `{}` |  |
-| serviceMonitor.path | string | `"/metrics"` |  |
 | serviceMonitor.relabelings | list | `[]` |  |
 | serviceMonitor.scheme | string | `"http"` |  |
 | serviceMonitor.scrapeTimeout | string | `"30s"` |  |
