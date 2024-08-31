@@ -20,7 +20,7 @@ spec:
     {{- end }}
     honorLabels: true
     port: http
-    path: {{ .Values.serviceMonitor.path }}
+    path: "/metrics"
     scheme: {{ .Values.serviceMonitor.scheme }}
     {{- if .Values.serviceMonitor.tlsConfig }}
     tlsConfig:
