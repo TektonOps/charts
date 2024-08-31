@@ -37,7 +37,11 @@ containers:
     env:
     - name: EXPORTER_PORT
       value: {{ default 2121 .Values.exporter.listenPort | quote }}
-{{- if .Values.exporter.auth.enabled -}}
+    - name: REQUEST_INTERVAL
+      value: {{ default 15 .Values.exporter.requestInterval | quote }}
+{{- if .Values.exporter.auth.enabled }}
+    - name: ENABLE_USER_AUTH
+      value: "true"
     - name: DOCKERHUB_PASSWORD
       valueFrom:
         secretKeyRef:
@@ -49,7 +53,7 @@ containers:
           name: {{ include "drl.fullname" . }}-secrets
           key: dockerhub-username
 {{- end }}
-{{- if .Values.exporter.auth.enabled -}}
+{{- if .Values.exporter.auth.enableFileAuth.enabled }}
     - name: FILE_AUTH_DIR
       valueF: {{ default "/config" .Values.exporter.auth.enableFileAuth.configFileLocation | quote }}
 {{- end }}
