@@ -1,7 +1,7 @@
 apiVersion: v2
 name: ipup-dynu
 version: 0.1.1
-description: Prometheus exporter for dockerhub rate limits 
+description: Dynamic IP updater for Dynu server
 type: application
 keywords:
   - ddns
