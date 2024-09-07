@@ -6,7 +6,7 @@ entries:
     created: "2023-11-20T07:27:01.256218916Z"
     description: Act runner for gitea actions
     digest: 64747adacec71934a1728f969b88a64a9a89d703c86aa59ea2f84863ef6e1ca1
-    home: https://charts.lmno.pk
+    home: https://charts.tektonops.com
     keywords:
     - gitea
     - actions
@@ -25,7 +25,7 @@ entries:
     created: "2023-11-03T09:06:51.96397965Z"
     description: Act runner for gitea actions
     digest: 395cd2aee5dc2110582e0518928a5f84128b5df506fbc13bb16f7dfe572d2ed0
-    home: https://charts.lmno.pk
+    home: https://charts.tektonops.com
     keywords:
     - gitea
     - actions
@@ -46,7 +46,7 @@ entries:
     created: "2024-08-31T09:12:40.816138883Z"
     description: Prometheus exporter for dockerhub rate limits
     digest: 8a3e34cb70e8a4a37c33b5c1bf1d85fdfe26deb320e0214db66191ad364a56e8
-    home: https://charts.lmno.pk
+    home: https://charts.tektonops.com
     keywords:
     - prometheus
     - exporter
@@ -65,7 +65,7 @@ entries:
     created: "2024-08-30T17:44:03.293221901Z"
     description: Prometheus exporter for dockerhub rate limits
     digest: 91c18da61b595271c3d6f5319ee0c508acffdf90dd05689ba901836cc863630b
-    home: https://charts.lmno.pk
+    home: https://charts.tektonops.com
     keywords:
     - prometheus
     - exporter
@@ -84,7 +84,7 @@ entries:
     created: "2024-08-30T17:09:44.4818344Z"
     description: Prometheus exporter for dockerhub rate limits
     digest: 399929a6320ee114fc2d56f6a5b6cb26d77801a72646070ed85720ea5bae68c0
-    home: https://charts.lmno.pk
+    home: https://charts.tektonops.com
     keywords:
     - prometheus
     - exporter
@@ -102,7 +102,7 @@ entries:
   - apiVersion: v2
     appVersion: 0.1.1
     created: "2024-09-07T03:56:54.461619932Z"
-    description: Prometheus exporter for dockerhub rate limits
+    description: Dynamic IP updater for Dynu server
     digest: c0335c4051f8edff75844f152b0e35e855c28acb903c5fb00840bd6520f9cee7
     home: https://charts.tektonops.com
     keywords:
