@@ -9,8 +9,8 @@
 To install the chart with the release name `act-runner`
 
 ```console
-$ helm repo add lmno http://charts.lmno.pk
-$ helm install act-runner lmno/act-runner
+$ helm repo add tektonops http://charts.tektonops.com
+$ helm install act-runner tektonops/act-runner
 ```
 
 ## Values

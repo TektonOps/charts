@@ -9,8 +9,8 @@
 To install the chart with the release name `drl-exporter`
 
 ```console
-$ helm repo add lmno http://charts.lmno.pk
-$ helm install drl-exporter lmno/drl-exporter
+$ helm repo add tektonops http://charts.tektonops.com
+$ helm install drl-exporter tektonops/drl-exporter
 ```
 
 ## Values

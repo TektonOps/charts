@@ -6,7 +6,7 @@
 1. Add this helm chart repo to your helm client configuration
 
     ```
-    helm repo add lmno https://charts.lmno.pk
+    helm repo add tektonops https://charts.tektonops.com
     
 
     ```
@@ -14,13 +14,13 @@
 
     ```
     helm repo update
-    helm search repo -l lmno
+    helm search repo -l tektonops
 
     ```
 3. Install the chart
 
     ```
-    helm install act-runner lmno/act-runner --set runner.runnerToken.value=<runner registration tokent>
+    helm install act-runner tektonops/act-runner --set runner.runnerToken.value=<runner registration tokent>
     ```
 
 4. Uninstall
