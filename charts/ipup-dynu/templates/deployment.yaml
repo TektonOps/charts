@@ -1,0 +1,23 @@
+apiVersion: {{ include "ipup.deployment.apiVersion" . }}
+kind: Deployment
+metadata:
+  name: {{ include "ipup.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels: {{ include "ipup.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+  {{- include "ipup.template-labels" . | nindent 6 }}
+  template:
+    metadata:
+      labels: {{ include "ipup.template-labels" . | nindent 8 }}
+        {{- if .Values.podLabels }}
+{{ toYaml .Values.podLabels | indent 8 }}
+        {{- end }}
+      annotations:
+        checksum/secret: {{ tpl (toYaml .Values.ipup.config.password) . | sha256sum }}
+        {{- if .Values.podAnnotations }}
+{{ tpl (toYaml .Values.podAnnotations) . | indent 8 }}
+        {{- end }}
+    spec: {{ include "ipup.pod" . | nindent 6 }}

@@ -1,0 +1,142 @@
+# Global values
+global:
+  # -- Override the name of the app.
+  nameOverride: ""
+  # -- Override the fully qualified app name.
+  fullnameOverride: ""
+  # -- Apply labels to all resources.
+  commonLabels: {}
+    # enviornment: production
+
+image: 
+  # -- Specify the image name to use (relative to `image.repository`).
+  name: tektonops/ipup-dynu
+  # -- Specify the image tag to use. ( latest or specific release )
+  tag: latest
+  # -- Specify the image repository to use.
+  repository: docker.io
+  # -- Specify the
+  # [pullPolicy](https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy).
+  pullPolicy: Always
+  # -- Specify the image pull secrets if pulling from private registry
+  # [imagePullSecrets](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod).
+  pullSecrets: []
+  #  - name: <REGISTRY_SECRET>
+
+ipup:
+  config:
+    domainName: "example.com"
+    # ipup.config.requestInterval -- Specify the interval in seconds at which requests should be sent
+    requestInterval: "60"
+    # ipup.config.username --  Dynu username
+    username: "user@example.com"
+    # ipup.config.password -- Dynup passowrd
+    password: "SecetPassword"
+    # ipup.config.dynuGroup -- Group name for dynu domains
+    dynuGroup:
+      # ipup.config.dynuGroup.enabled -- Enable/disable Group
+      enabled: false
+      groupName: ""
+
+    logs:
+      level: "info"
+      enableSource: "false"
+    # Service account
+serviceAccount:
+    # Specifies whether a service account should be created
+    create: true
+
+
+# -- Define environment variables.
+env: []
+#  - name: USE_CONFIG_FILE
+#    value: "true"
+
+
+# -- Define environment variables from existing ConfigMap or Secret data.
+envFrom: []
+#  - configMapRef:
+#      name: <CONFIGMAP_NAME>
+#  - secretRef:
+#     name: <SECRET_NAME>
+
+
+# -- Set annotations on Pods.
+podAnnotations: {}
+
+# -- Set labels on Pods.
+podLabels: {}
+
+# podPriorityClassName -- Set the
+# [priorityClassName](https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/#priorityclass).
+podPriorityClassName: ""
+
+# -- Enable the hostNetwork option on Pods.
+podHostNetwork: false
+
+
+# -- Override default image command.
+command: []
+
+# -- Override default image arguments.
+args: []
+
+# -- Specify resource requests and limits.
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 256Mi
+
+# -- Specify lifecycle hooks for Containers.
+lifecycle: {}
+  # preStop:
+  #   exec:
+  #     command:
+  #     - /bin/sleep
+  #     - "10"
+
+
+# -- Configure
+# [nodeSelector](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector).
+nodeSelector: {}
+
+# -- Configure
+# [taints and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).
+tolerations: []
+
+# -- Configure
+# [affinity and anti-affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity).
+affinity: {}
+
+# -- Configure
+# [topology spread constraints](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/).
+topologySpreadConstraints: []
+
+
+# -- Specify dns policy
+# [dnsPolicy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy).
+dnsPolicy: ClusterFirst
+
+# -- Specify a custom dns config
+# [dnsConfig](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-dns-config).
+dnsConfig: {}
+#  nameservers:
+#    - 1.2.3.4
+#  searches:
+#   - ns1.svc.cluster-domain.example
+#   - my.dns.search.suffix
+#  options:
+#    - name: ndots
+#      value: "2"
+#    - name: edns0
+
+# -- Specify the livenessProbe
+# [configuration](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#configure-probes).
+livenessProbe: {}
+
+# -- Specify the readinessProbe
+# [configuration](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#configure-probes).
+readinessProbe: {}

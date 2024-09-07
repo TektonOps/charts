@@ -1,0 +1,7 @@
+
+
+Thank you for installing {{ .Chart.Name }}, your release {{ .Release.Name }} is being deployed.
+
+
+To watch the status of service run:
+kubectl get --namespace {{ .Release.Namespace }} svc -w {{ include "ipup.fullname" . }}

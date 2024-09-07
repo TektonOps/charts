@@ -1,0 +1,15 @@
+apiVersion: v2
+name: ipup-dynu
+version: 0.1.1
+description: Prometheus exporter for dockerhub rate limits 
+type: application
+keywords:
+  - ddns
+  - dynu
+  - ip
+home: https://charts.tektonops.com
+maintainers:
+  - name: Abdul Khaliq
+    email: a.khaliq@outlook.my
+    url: https://github.com/tektonops/charts
+appVersion: 0.1.1
