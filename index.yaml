@@ -98,4 +98,24 @@ entries:
     urls:
     - https://github.com/kha7iq/charts/releases/download/drl-exporter-0.1.1/drl-exporter-0.1.1.tgz
     version: 0.1.1
-generated: "2024-08-31T09:12:40.816156356Z"
+  ipup-dynu:
+  - apiVersion: v2
+    appVersion: 0.1.1
+    created: "2024-09-07T03:56:54.461619932Z"
+    description: Prometheus exporter for dockerhub rate limits
+    digest: c0335c4051f8edff75844f152b0e35e855c28acb903c5fb00840bd6520f9cee7
+    home: https://charts.tektonops.com
+    keywords:
+    - ddns
+    - dynu
+    - ip
+    maintainers:
+    - email: a.khaliq@outlook.my
+      name: Abdul Khaliq
+      url: https://github.com/tektonops/charts
+    name: ipup-dynu
+    type: application
+    urls:
+    - https://github.com/TektonOps/charts/releases/download/ipup-dynu-0.1.1/ipup-dynu-0.1.1.tgz
+    version: 0.1.1
+generated: "2024-09-07T03:56:54.461635742Z"
