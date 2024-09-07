@@ -6,20 +6,20 @@
 1. Add this helm chart repo to your helm client configuration
 
     ```
-    helm repo add lmno https://charts.lmno.pk
+    helm repo add tektonops https://charts.tektonops.com
     helm repo update
 
     ```
 2. Update repo and search
 
     ```
-    helm search repo -l lmno
+    helm search repo -l tektonops
 
     ```
 3. Install the chart
 
     ```
-    helm install act-runner lmno/act-runner
+    helm install act-runner tektonops/act-runner
     ```
 
 4. Uninstall
