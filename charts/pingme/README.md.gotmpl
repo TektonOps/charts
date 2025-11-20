@@ -1,0 +1,26 @@
+# Pingme Notification Service
+
+### This chart can be used to deploy  [Pingme](https://github.com/kha7iq/pingme).
+
+{{ template "chart.versionBadge" . }}{{ template "chart.typeBadge" . }}{{ template "chart.appVersionBadge" . }}
+
+
+
+## Installing the Chart
+
+To install the chart with the release name `pingme`
+
+```console
+$ helm repo add tektonops http://charts.tektonops.com
+$ helm install pingme tektonops/{{ template "chart.name" . }}
+```
+## Secrets from .env
+
+```bash
+kubectl create secret generic pingme-env --from-env-file=.env
+```
+
+{{ template "chart.requirementsSection" . }}
+
+{{ template "chart.valuesSection" . }}
+

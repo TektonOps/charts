@@ -1,0 +1,22 @@
+apiVersion: {{ include "pingme.deployment.apiVersion" . }}
+kind: Deployment
+metadata:
+  name: {{ include "pingme.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels: {{ include "pingme.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+  {{- include "pingme.template-labels" . | nindent 6 }}
+  template:
+    metadata:
+      labels: {{ include "pingme.template-labels" . | nindent 8 }}
+        {{- if .Values.podLabels }}
+{{ toYaml .Values.podLabels | indent 8 }}
+        {{- end }}
+      annotations:
+        {{- if .Values.podAnnotations }}
+{{ tpl (toYaml .Values.podAnnotations) . | indent 8 }}
+        {{- end }}
+    spec: {{ include "pingme.pod" . | nindent 6 }}
