@@ -121,6 +121,25 @@ entries:
   pingme:
   - apiVersion: v2
     appVersion: 0.1.1
+    created: "2025-11-21T08:18:10.717330291Z"
+    description: Multi-platform notification service
+    digest: 2540ab813e0d4cc1e533a50934319b8df6e0e53cdad9ee41c04c905d3d3d0b93
+    home: https://charts.tektonops.com
+    keywords:
+    - pingme
+    - webhook
+    - notification
+    maintainers:
+    - email: a.khaliq@outlook.my
+      name: Abdul Khaliq
+      url: https://github.com/tektonops/charts
+    name: pingme
+    type: application
+    urls:
+    - https://github.com/TektonOps/charts/releases/download/pingme-0.1.2/pingme-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 0.1.1
     created: "2025-11-20T13:43:46.40483544Z"
     description: Multi-platform notification service
     digest: 1b6f3c313f8efafb556f2433a87c1ef68e5827e97f60a3550553085b31886c24
@@ -138,4 +157,4 @@ entries:
     urls:
     - https://github.com/TektonOps/charts/releases/download/pingme-0.1.1/pingme-0.1.1.tgz
     version: 0.1.1
-generated: "2025-11-20T13:43:46.404855307Z"
+generated: "2025-11-21T08:18:10.717352773Z"
