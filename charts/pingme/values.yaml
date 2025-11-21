@@ -12,7 +12,7 @@ image:
   # -- Specify the image name to use (relative to `image.repository`).
   name: khaliq/pingme
   # -- Specify the image tag to use. ( latest or specific release )
-  tag: 0.2.7
+  tag: v0.2.7
   # -- Specify the image repository to use.
   repository: docker.io
   # -- Specify the
@@ -34,7 +34,7 @@ service:
 # -- Configure ingress
 ingress:
   # -- Enable ingress
-  enabled: true
+  enabled: false
   # -- Ingress class name
   className: ""
   # -- Ingress annotations
@@ -54,7 +54,11 @@ ingress:
   #      - chart-example.local
 
 # -- Define environment variables.
-env: []
+env:
+ - name: PINGME_PORT
+   value: "8080"
+ - name: PINGME_HOST
+   value: "0.0.0.0"
 #  - name: PINGME_AUTH_METHOD
 #    value: "apikey"
 #  - name: PINGME_API_KEYS
